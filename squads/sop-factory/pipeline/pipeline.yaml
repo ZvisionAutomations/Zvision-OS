@@ -1,0 +1,46 @@
+pipeline:
+  squad: sop-factory
+  version: "1.0.0"
+
+  steps:
+    - step: 1
+      file: steps/step-01-contexto-operacional.md
+      name: "Contexto Operacional"
+      type: checkpoint
+
+    - step: 2
+      file: steps/step-02-mapeamento-de-processos.md
+      name: "Mapeamento de Processos"
+      type: agent
+      agent: mario-mapeamento
+      execution: inline
+
+    - step: 3
+      file: steps/step-03-aprovacao-dos-mapas.md
+      name: "Aprovação dos Mapas"
+      type: checkpoint
+
+    - step: 4
+      file: steps/step-04-escrita-dos-sops.md
+      name: "Escrita dos SOPs"
+      type: agent
+      agent: sofia-sop
+      execution: inline
+
+    - step: 5
+      file: steps/step-05-revisao-de-qualidade.md
+      name: "Revisão de Qualidade"
+      type: agent
+      agent: renata-revisao
+      execution: inline
+      on_reject: 4
+
+    - step: 6
+      file: steps/step-06-aprovacao-final.md
+      name: "Aprovação Final"
+      type: checkpoint
+
+  checkpoints:
+    - step: 1
+    - step: 3
+    - step: 6

@@ -1,0 +1,29 @@
+squad:
+  code: sop-factory
+  name: "SOP Factory"
+  description: "Mapeia, escreve e revisa SOPs internos da Zvision Automation em Markdown para Obsidian."
+  icon: "📋"
+  version: "1.0.0"
+  language: "Português (Brasil)"
+
+agents:
+  - id: mario-mapeamento
+    file: agents/mario-mapeamento.agent.md
+  - id: sofia-sop
+    file: agents/sofia-sop.agent.md
+  - id: renata-revisao
+    file: agents/renata-revisao.agent.md
+
+pipeline:
+  entry: pipeline/pipeline.yaml
+
+skills:
+  - web_search
+  - web_fetch
+
+data:
+  - pipeline/data/research-brief.md
+  - pipeline/data/domain-framework.md
+  - pipeline/data/quality-criteria.md
+  - pipeline/data/output-examples.md
+  - pipeline/data/anti-patterns.md
