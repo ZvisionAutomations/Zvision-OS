@@ -41,8 +41,7 @@ Cola técnica entre o Paperclip (empresa) e os squads do Zvision-OS.
 
 ## Resultado
 
-Redução estimada de 70-80% de tokens vs carregar todos os squads.
-Referência: [[token-optimization]]
+Redução estimada de 70-80% de tokens vs carregar todos os squads — os princípios de [[token-optimization]] aplicados aqui (especialmente [[intent-classification]] e [[scoped-skills]]) são o que torna viável escalar o [[paperclip]] para múltiplos clientes sem custo proporcional.
 
 ## Instalação
 

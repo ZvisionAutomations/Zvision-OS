@@ -8,10 +8,12 @@ CLI de dados de marketing para agentes autônomos. Conecta 40+ plataformas via t
 
 ## O que é
 
+O InsightfulPipe é o que transforma o [[traffic-masters-squad]] de squad de hipóteses em squad de dados reais. Quando ativo, os agentes chamam `insightfulpipe query google-analytics` diretamente e recebem JSON estruturado — eliminando todo trabalho manual de extração que hoje consome tempo do operador.
+
 - 71 skills prontas: Google Ads, Facebook Ads, Meta, TikTok, LinkedIn, Analytics, CRO, SEO
 - 37 MCPs: Google Analytics, Shopify, HubSpot, Stripe, Klaviyo, Telegram e mais
 - CLI que agentes chamam diretamente: `insightfulpipe query google-analytics`
-- Output em JSON estruturado — perfeito para o Traffic Masters squad operar com dados reais
+- Output em JSON estruturado — perfeito para o [[traffic-masters-squad]] operar com dados reais
 
 ## Quando ativar
 

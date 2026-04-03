@@ -9,6 +9,8 @@ Você é o board. Aprova tickets, os squads executam.
 
 ## Papel na Zvision
 
+O Paperclip é o centro de comando: recebe tasks via interface web ou API, delega para os squads via [[bridge-http]], e registra audit log de tudo que foi executado. O controle de orçamento de tokens por agente trabalha em conjunto com o [[token-optimization]] implementado no [[bridge-http]] — juntos, garantem que escalar para múltiplos clientes não explode o custo.
+
 - Recebe tasks via interface web ou API
 - Delega para os squads via [[bridge-http]]
 - Registra audit log de tudo que foi executado

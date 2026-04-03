@@ -13,6 +13,9 @@ Este vault é a memória viva de tudo que foi decidido, construído e aprendido.
 - [[moc-copy]] — voz da marca, copies testados, frameworks
 - [[moc-stack]] — stack técnica, decisões de arquitetura
 - [[moc-decisoes]] — decisões estratégicas e seus contextos
+- [[moc-processos]] — SOPs, checklists e protocolos de entrega
+- [[moc-servicos]] — portfólio completo de serviços
+- [[moc-clientes]] — pipeline de deals e histórico de clientes
 
 ## Projetos ativos
 - [[zvision-landing]] — landing page em produção (Vercel)
@@ -22,6 +25,12 @@ Este vault é a memória viva de tudo que foi decidido, construído e aprendido.
 - [[fase2-arquitetura]] — Paperclip + AIOX + Bridge operacionais
 - [[paperclip]] — orquestrador de agentes (localhost:3100)
 - [[bridge-http]] — cola entre Paperclip e squads (localhost:3300)
+
+## Serviços da Zvision
+A Zvision oferece [[automacao-processos]] com n8n, Make e Zapier,
+[[agentes-ia]] customizados com Claude e memória via vault,
+[[consultoria-ia]] estratégica para adoção de IA, e
+[[landing-sites]] com stack vanilla e segurança embutida.
 
 ## Regra de ouro
 Antes de executar qualquer tarefa relevante:

@@ -14,3 +14,5 @@ description: Tudo sobre segurança da Zvision — auditorias realizadas, decisõ
 
 ## Riscos aceitos
 - [[sri-google-fonts]] — SRI impraticável em CDN dinâmico, mitigado por CSP
+
+Todo projeto novo entregue pela Zvision — especialmente [[landing-sites]] — passa pelo [[checklist-qualidade-preentrega]] antes do deploy, garantindo que o [[rate-limiting-padrao]], o [[honeypot-pattern]] e os [[headers-padrao]] estão implementados.

@@ -204,6 +204,8 @@ HTML ou JS.
 | INFO       | 3     | —          | —            |
 | **TOTAL**  | **8** | **7**      | **1**        |
 
+Os padrões estabelecidos nesta auditoria — [[rate-limiting-padrao]], [[honeypot-pattern]] e [[headers-padrao]] — foram promovidos ao [[moc-seguranca]] como padrão obrigatório para todos os projetos [[landing-sites]] da Zvision. O único risco aceito, [[sri-google-fonts]], está documentado com mitigação via CSP.
+
 ---
 
 ## ARQUIVOS MODIFICADOS

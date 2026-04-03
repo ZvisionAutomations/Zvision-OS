@@ -22,13 +22,9 @@ Impacto: 73-80% menos custo, 50% mais rápido, 5-10% mais preciso
 
 ## Quando aplicar na Zvision
 
-Crítico na fase 2 — quando Paperclip orquestrar squads em paralelo para múltiplos
-clientes, cada request mal otimizado multiplica o custo por número de clientes.
+Crítico na fase 2 — quando o [[paperclip]] orquestrar squads em paralelo para múltiplos clientes, cada request mal otimizado multiplica o custo por número de clientes.
 
-Implementar no bridge HTTP entre Paperclip e AIOS Core:
-- Classificar intent da task antes de carregar o squad
-- Carregar só os agentes do squad relevante, não os 156
-- Prunar histórico de conversas longas antes de passar contexto
+O [[bridge-http]] é onde esses princípios vivem na prática: o [[intent-classification]] acontece antes de qualquer chamada LLM, e o [[scoped-skills]] garante que apenas o squad relevante é carregado — não todos os 156 agentes. O [[context-pruning]] limita o histórico a 3 turnos antes de passar contexto para o [[aios-core]].
 
 ## Status
 🔴 Pendente — implementar na Fase 2
