@@ -18,6 +18,11 @@ Este vault é a memória viva de tudo que foi decidido, construído e aprendido.
 - [[zvision-landing]] — landing page em produção (Vercel)
 - [[zvision-crm]] — CRM em desenvolvimento
 
+## Stack — Fase 2 (Abr 2026)
+- [[fase2-arquitetura]] — Paperclip + AIOX + Bridge operacionais
+- [[paperclip]] — orquestrador de agentes (localhost:3100)
+- [[bridge-http]] — cola entre Paperclip e squads (localhost:3300)
+
 ## Regra de ouro
 Antes de executar qualquer tarefa relevante:
 1. Consulte o MOC do domínio
