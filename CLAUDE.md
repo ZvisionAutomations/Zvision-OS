@@ -148,3 +148,34 @@ Ver squads/squads.md para contexto completo.
 - Toda decisão relevante vai para obsidian-vault/decisoes/
 - Toda audit vai para obsidian-vault/audits/
 - Todo cliente → obsidian-vault/clientes/
+
+## SKILL GRAPH NAVIGATION (OBRIGATÓRIO)
+
+Antes de qualquer trabalho de squad, navega o grafo:
+
+1. Identifica o squad pelo domínio da task (ver registry.yaml)
+2. Lê o index do squad: obsidian-vault/squads/[squad-id]/index.md
+3. Navega os MOCs relevantes via wikilinks inline
+4. Carrega apenas os nodes necessários para a task
+5. Executa com contexto do domínio carregado
+6. Documenta o resultado no node correto do vault
+
+Grafos disponíveis em obsidian-vault/squads/ (22 índices):
+squad-dev, squad-cybersecurity, squad-copy, squad-design, squad-brand,
+squad-paidmedia, squad-growth, squad-research, squad-storytelling,
+squad-commercial, squad-council, squad-product, squad-animations,
+squad-cloning, squad-finance, squad-content, squad-courses, squad-claude,
+squad-hormozi, squad-movement, squad-advisory, squad-c-level
+
+Regra de ouro dos wikilinks (NUNCA violar):
+WIKILINKS SEMPRE inline na prosa — nunca em listas soltas no final.
+
+Correto: "O [[squad-copy]] domina headlines usando o framework
+[[before-after-bridge]] calibrado para o [[publico-alvo-zvision]]."
+
+Errado: "Ver também: [[squad-copy]], [[before-after-bridge]]"
+
+Depois de qualquer entrega:
+- Atualiza o node relevante com o que foi aprendido
+- Adiciona wikilinks inline para conectar ao grafo
+- O vault fica mais inteligente a cada sessão
