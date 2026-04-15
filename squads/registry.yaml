@@ -1,0 +1,149 @@
+# ZVISION UNIFIED SQUAD REGISTRY
+# Versão: 2.0.0
+# Atualizado: 2026-04
+# Total de squads únicos: 22
+# Total de agentes: 400+
+
+metadata:
+  version: "2.0.0"
+  description: "Registry unificado de todos os squads do Zvision-OS"
+  changelog: "v2.0.0 — merge de squads legados, 22 squads canonicos definidos"
+
+squads:
+  - id: squad-cybersecurity
+    name: "Cybersecurity Squad"
+    agents: 23
+    orquestrador: "@cyber-orqx"
+    keywords: ["segurança", "audit", "pentest", "vulnerability", "OWASP", "RLS"]
+
+  - id: squad-copy
+    name: "Copy Squad"
+    agents: 36
+    orquestrador: "@copy-orqx"
+    keywords: ["copy", "texto", "headline", "landing", "email", "CTA", "persuasão"]
+
+  - id: squad-design
+    name: "Design Squad"
+    agents: 18
+    orquestrador: "@design-orqx"
+    keywords: ["design", "interface", "ux", "ui", "componente", "layout", "visual"]
+
+  - id: squad-brand
+    name: "Brand Squad"
+    agents: 30
+    orquestrador: "@brand-orqx"
+    keywords: ["marca", "branding", "posicionamento", "identidade", "arquetipos"]
+
+  - id: squad-paidmedia
+    name: "Paid Media Squad"
+    agents: 26
+    orquestrador: "@paidmedia-orqx"
+    keywords: ["tráfego", "ads", "campanha", "meta", "google", "mídia paga", "ROI"]
+
+  - id: squad-growth
+    name: "Growth Squad"
+    agents: 7
+    orquestrador: "@growth-orqx"
+    keywords: ["growth", "cro", "seo", "analytics", "conversão", "funil", "retenção"]
+
+  - id: squad-research
+    name: "Research Squad"
+    agents: 14
+    orquestrador: "@research-orqx"
+    keywords: ["dados", "analytics", "métricas", "dashboard", "relatório", "KPI", "pesquisa", "mercado"]
+
+  - id: squad-storytelling
+    name: "Storytelling Squad"
+    agents: 13
+    orquestrador: "@storytelling-orqx"
+    keywords: ["história", "narrativa", "storytelling", "roteiro", "pitch", "apresentação"]
+
+  - id: squad-commercial
+    name: "Commercial Squad"
+    agents: 11
+    orquestrador: "@commercial-orqx"
+    keywords: ["oferta", "pricing", "venda", "proposta", "pipeline", "lead", "prospecção"]
+
+  - id: squad-council
+    name: "Council Squad"
+    agents: 11
+    orquestrador: "@council-orqx"
+    keywords: ["conselho", "decisão", "prioridade", "operação", "tático"]
+
+  - id: advisory-board
+    name: "Advisory Board"
+    agents: 11
+    orquestrador: "@board-chair"
+    keywords: ["visão", "longo prazo", "board", "decisão estratégica", "investimento", "fundador"]
+
+  - id: c-level-squad
+    name: "C-Level Squad"
+    agents: 6
+    orquestrador: "@vision-chief"
+    keywords: ["ceo", "cto", "cmo", "coo", "executivo", "c-level", "liderança"]
+
+  - id: squad-product
+    name: "Product Squad"
+    agents: 7
+    orquestrador: "@product-orqx"
+    keywords: ["produto", "roadmap", "discovery", "feature", "backlog", "mvp", "sprint"]
+
+  - id: squad-animations
+    name: "Animations Squad"
+    agents: 9
+    orquestrador: "@animations-orqx"
+    keywords: ["animação", "motion", "3d", "partícula", "transição", "threejs", "shader"]
+
+  - id: squad-cloning
+    name: "Cloning Squad"
+    agents: 9
+    orquestrador: "@cloning-orqx"
+    keywords: ["clone", "persona", "digital twin", "voz", "estilo", "replicar"]
+
+  - id: squad-finance
+    name: "Finance Squad"
+    agents: 5
+    orquestrador: "@finance-orqx"
+    keywords: ["financeiro", "budget", "custo", "lucro", "caixa", "projeção", "roi"]
+
+  - id: squad-content
+    name: "Content Squad"
+    agents: 7
+    orquestrador: "@content-orqx"
+    keywords: ["conteúdo", "editorial", "blog", "artigo", "social", "instagram", "linkedin"]
+
+  - id: squad-courses
+    name: "Courses Squad"
+    agents: 8
+    orquestrador: "@courses-orqx"
+    keywords: ["curso", "treinamento", "educação", "aula", "módulo", "assessment", "infoproduto"]
+
+  - id: squad-claude
+    name: "Claude Code Squad"
+    agents: 12
+    orquestrador: "@claude-orqx"
+    keywords: ["claude code", "mcp", "hook", "skill", "agent", "workflow", "automatizar"]
+
+  - id: hormozi-squad
+    name: "Hormozi Squad"
+    agents: 16
+    orquestrador: "@hormozi-chief"
+    keywords: ["hormozi", "oferta", "leads", "escala", "retenção", "pricing", "modelo de negócio"]
+
+  - id: movement
+    name: "Movement Squad"
+    agents: 7
+    orquestrador: "@movement-chief"
+    keywords: ["movimento", "manifesto", "identidade", "impacto", "causa", "cultura"]
+
+  - id: sop-factory
+    name: "SOP Factory"
+    agents: 8
+    orquestrador: "@sop-chief"
+    keywords: ["sop", "processo", "procedimento", "documentação", "manual", "padronização"]
+
+  - id: squad-dev
+    name: "Dev Squad"
+    agents: 7
+    orquestrador: "@dev-orqx"
+    keywords: ["site", "landing", "código", "desenvolvimento", "deploy", "frontend", "backend", "node", "html", "css", "javascript", "vercel", "bug", "feature", "componente", "página"]

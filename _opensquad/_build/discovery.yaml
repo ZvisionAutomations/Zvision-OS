@@ -1,0 +1,30 @@
+squad_code: "sop-factory"
+purpose: "Mapear e documentar os processos internos da Zvision Automation — SOPs para onboarding de cliente, entrega de automação, entrega de agente de IA e checklist de qualidade pré-entrega. Output em Markdown pronto para Obsidian."
+domain: "mixed"
+
+company:
+  name: "Zvision Automation"
+  tone: "Técnico, direto, estética cyber/tático — foco em métricas e resultados reais"
+  products: "Chatbots com IA, automação de CRM/pipeline, integrações de sistemas, dashboards automatizados, gestão operacional contínua (managed service)"
+
+language: "Português (Brasil)"
+
+context:
+  input_source: "do zero — baseado no modelo de negócio da Zvision"
+  detail_level: "híbrido — visão macro + detalhamento nos pontos críticos (onboarding e qualidade com mais detalhe, entregas mais enxutas)"
+  audience: "Miguel + time futuro — legível para colaboradores que ainda vão entrar"
+  deliverables:
+    - "SOP: Onboarding de Cliente"
+    - "SOP: Entrega de Automação"
+    - "SOP: Entrega de Agente de IA"
+    - "Checklist de Qualidade Pré-Entrega"
+
+tools_needed:
+  - "file-writing (native)"
+  - "markdown-generation (native)"
+
+investigation:
+  enabled: false
+  profiles: []
+
+target_formats: []

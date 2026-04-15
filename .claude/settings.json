@@ -1,0 +1,23 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .claude/hooks/enforce-story-gate.js"
+          },
+          {
+            "type": "command",
+            "command": "node .claude/hooks/enforce-git-push.js"
+          },
+          {
+            "type": "command",
+            "command": "node .claude/hooks/token-guardian.js"
+          }
+        ]
+      }
+    ]
+  }
+}

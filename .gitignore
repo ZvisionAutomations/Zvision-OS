@@ -1,0 +1,50 @@
+# Dependencies
+node_modules/
+
+# IDE e builds
+.claude/skills/gstack/bin/
+.claude/skills/browse/dist/
+
+# MCP config (contém credenciais)
+.mcp.json
+.mcp.json.local
+
+# SINAPSE core (grande, gerado automaticamente)
+.sinapse-ai/
+
+# Psters workflow (clonado, não modificado)
+.claude/skills/psters-workflow/
+
+# Artifacts e binários
+*.tgz
+sinapse-ai-*.tgz
+
+# Paperclip — instância local (dados, logs, secrets)
+.paperclip/
+start-paperclip.sh
+
+# Evolution API source (grande, clonado)
+zvision-wa/evolution-source/
+zvision-wa/evolution_instances/
+
+# Vault — dados privados de negócio
+obsidian-vault/clientes/
+obsidian-vault/pessoas/
+obsidian-vault/diario/
+obsidian-vault/daily/
+obsidian-vault/inbox/
+obsidian-vault/arquivo/
+obsidian-vault/decisoes/
+
+# Artefatos de path Windows malformados
+C:Users*/
+
+# Env files
+.env
+.env.local
+.env.production
+zvision-wa/.env
+
+# Logs
+*.log
+logs/

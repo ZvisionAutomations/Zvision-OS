@@ -1,0 +1,166 @@
+name: squad-dev
+version: "1.0.0"
+slashPrefix: dev
+author: Zvision
+license: UNLICENSED
+description: >
+  Squad de desenvolvimento de software world-class — implementa sites, landing pages,
+  features, componentes e APIs usando Vanilla HTML/CSS/JS, Node.js e Vercel.
+  Zero mediocria: cada linha de código passa por arquitetura sólida, QA rigoroso
+  e auditoria de segurança antes de ir ao ar.
+
+metadata:
+  created: "2026-04-10"
+  author: "Zvision-OS"
+  tier: 1
+  total_files: 28
+  agents: 7
+  tasks: 5
+  workflows: 3
+  knowledge_bases: 4
+  checklists: 2
+  templates: 2
+  preferences: 1
+
+quality_standards:
+  reference_authors:
+    - Robert C. Martin (Clean Code, SOLID principles)
+    - Martin Fowler (Refactoring, Patterns of Enterprise Application Architecture)
+    - Kent Beck (Test-Driven Development, Extreme Programming)
+    - Addy Osmani (JavaScript performance, web performance patterns)
+    - Lea Verou (CSS, web standards, progressive enhancement)
+    - Jake Archibald (Web performance, service workers, progressive web apps)
+    - Ilya Grigorik (High Performance Browser Networking)
+    - Evan You (Reactive systems, modern frontend architecture)
+    - Rich Harris (Svelte, compiler-first thinking, no-build tooling)
+    - DHH (Rails doctrine, convention over configuration, majestic monolith)
+
+  reference_companies:
+    - Vercel (DX excellence, zero-config deployment)
+    - Netlify (JAMstack, modern web infrastructure)
+    - Linear (product quality, design-engineering collaboration)
+    - Basecamp/37signals (simplicity, no-BS software development)
+    - Stripe (API design excellence, developer experience)
+
+  core_concepts:
+    - name: "Clean Code First"
+      description: >
+        Todo código deve ser legível, testável e mantível antes de ser otimizado.
+        Nomenclatura clara, funções pequenas com responsabilidade única, sem comentários
+        desnecessários — o código comunica a intenção. Regra de ouro: se precisa
+        de um comentário para explicar o que faz, reescreve.
+
+    - name: "CSS Variables Only"
+      description: >
+        NUNCA valores crus de cor, espaçamento ou tipografia no CSS — sempre
+        variáveis CSS (custom properties). Sistema de design tokens definido
+        em :root. Qualquer valor hardcoded é um bug de design system.
+        Referência: var(--color-primary), var(--space-4), var(--font-size-lg).
+
+    - name: "Zero TypeScript any"
+      description: >
+        Quando TypeScript é usado, o tipo `any` é proibido sem exceção.
+        Tipos devem ser explícitos, genéricos quando necessário, e nunca
+        escapados via any. Se não sabe o tipo, investiga — não escapa.
+
+    - name: "Security by Default"
+      description: >
+        Segurança não é feature — é requisito. XSS, SQL injection, CSRF, secrets
+        expostos: qualquer vulnerabilidade bloqueia o deploy. O @security-dev
+        revisa todo código antes de @devops fazer push. OWASP Top 10 é o checklist mínimo.
+
+    - name: "Ship First, Optimize Later"
+      description: >
+        Versão funcional antes de versão perfeita. YAGNI (You Ain't Gonna Need It)
+        e KISS (Keep It Simple, Stupid) governam decisões de arquitetura. Não
+        antecipa requisitos futuros — entrega o que foi pedido, world-class,
+        sem especulação.
+
+agents:
+  - id: dev-orqx
+    name: Forge Prime
+    icon: "⚙️"
+    archetype: Conductor
+    role: Dev Squad Orchestrator — lê a task, avalia complexidade, delega ao especialista correto
+    tasks_count: 0
+
+  - id: architect
+    name: Blueprint
+    icon: "🏗️"
+    archetype: Strategist
+    role: Software Architect — decisões de arquitetura, tech stack, estrutura de projeto, trade-offs
+    tasks_count: 1
+
+  - id: developer
+    name: Coder
+    icon: "💻"
+    archetype: Builder
+    role: Senior Developer — implementação de código Vanilla HTML/CSS/JS e Node.js world-class
+    tasks_count: 3
+
+  - id: quality-gate
+    name: Sentinel
+    icon: "🔍"
+    archetype: Guardian
+    role: Quality Gate Engineer — testes, QA, code review, padrões de qualidade, definição de pronto
+    tasks_count: 1
+
+  - id: devops
+    name: Pipeline
+    icon: "🚀"
+    archetype: Operator
+    role: DevOps Engineer — CI/CD, git, deploy Vercel, WSL2, infraestrutura, automação
+    tasks_count: 1
+
+  - id: ux-engineer
+    name: Pixel
+    icon: "🎨"
+    archetype: Craftsman
+    role: UX Engineer — HTML/CSS/JS pixel-perfect, design system, componentes visuais, acessibilidade
+    tasks_count: 1
+
+  - id: security-dev
+    name: Shield
+    icon: "🛡️"
+    archetype: Sentinel
+    role: Security Developer — auditoria de segurança do código, OWASP Top 10, integra squad-cybersecurity
+    tasks_count: 1
+
+workflows:
+  - name: feature-build-cycle
+    description: Ciclo completo de feature — do brief ao deploy em produção
+  - name: bug-fix-cycle
+    description: Ciclo de correção de bug — diagnóstico, fix, teste, deploy
+  - name: deploy-cycle
+    description: Ciclo de deploy — review, build, Vercel, verificação pós-deploy
+
+knowledge_bases:
+  - vanilla-js-patterns
+  - css-variables-system
+  - vercel-deployment-guide
+  - security-dev-guidelines
+
+checklists:
+  - code-quality-checklist
+  - deploy-checklist
+
+templates:
+  - html-page-template
+  - component-template
+
+cross_squad_connections:
+  inbound:
+    - from: squad-design
+      receives: UI specs, mockups, design tokens, componentes aprovados, guidelines visuais
+    - from: squad-cybersecurity
+      receives: security audit results, vulnerability reports, compliance requirements
+    - from: squad-product
+      receives: feature specs, user stories, acceptance criteria, roadmap
+
+  outbound:
+    - to: squad-design
+      delivers: HTML/CSS implementado, componentes construídos, feedback de implementabilidade
+    - to: squad-cybersecurity
+      delivers: código para auditoria, dependency reports, infraestrutura para pen test
+    - to: squad-growth
+      delivers: implementações de tracking, A/B test code, landing pages otimizadas

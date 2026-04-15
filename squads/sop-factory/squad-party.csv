@@ -1,0 +1,4 @@
+id,name,title,icon,path
+mario-mapeamento,Mário Mapeamento,Process Mapper,🗺️,./agents/mario-mapeamento.agent.md
+sofia-sop,Sofia SOP,SOP Writer,✍️,./agents/sofia-sop.agent.md
+renata-revisao,Renata Revisão,Quality Reviewer,🔍,./agents/renata-revisao.agent.md

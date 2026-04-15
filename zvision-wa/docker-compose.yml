@@ -1,0 +1,92 @@
+services:
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: evolution
+      POSTGRES_PASSWORD: evolution
+      POSTGRES_DB: evolution
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - zvision-network
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U evolution" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    networks:
+      - zvision-network
+    healthcheck:
+      test: [ "CMD", "redis-cli", "ping" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  evolution:
+    image: zvisionautomations/evolution-api:v2.3.5
+    ports:
+      - "8080:8080"
+    environment:
+      - SERVER_URL=http://localhost:8080
+      - AUTHENTICATION_TYPE=apikey
+      - AUTHENTICATION_API_KEY=${EVOLUTION_API_KEY}
+      - AUTHENTICATION_EXPOSE_IN_FETCH_INSTANCES=true
+      - DATABASE_ENABLED=true
+      - DATABASE_PROVIDER=postgresql
+      - DATABASE_CONNECTION_URI=postgresql://evolution:evolution@postgres:5432/evolution
+      - DATABASE_SAVE_DATA_INSTANCE=true
+      - DATABASE_SAVE_DATA_NEW_MESSAGE=false
+      - DATABASE_SAVE_DATA_CONTACTS=false
+      - DATABASE_SAVE_DATA_CHATS=false
+      - CACHE_REDIS_ENABLED=false
+      - CACHE_LOCAL_ENABLED=true
+      - QRCODE_LIMIT=30
+      - LOG_LEVEL=ERROR
+      - DEL_INSTANCE=false
+    volumes:
+      - ./evolution_instances:/evolution/instances
+    networks:
+      - zvision-network
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: [ "CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:8080/" ]
+      interval: 15s
+      timeout: 10s
+      retries: 10
+      start_period: 60s
+
+  agent:
+    build: ./agent
+    ports:
+      - "3400:3400"
+    environment:
+      - EVOLUTION_BASE_URL=http://evolution:8080
+      - EVOLUTION_API_KEY=${EVOLUTION_API_KEY}
+      - EVOLUTION_INSTANCE_NAME=zvision-sdr
+      - OPENROUTER_API_KEY=${OPENROUTER_API_KEY}
+      - GROQ_API_KEY=${GROQ_API_KEY:-}
+      - MIGUEL_PHONE=${MIGUEL_PHONE}
+      - DATA_DIR=/data/leads
+      - PORT=3400
+    volumes:
+      - agent_data:/data/leads
+    networks:
+      - zvision-network
+    depends_on:
+      evolution:
+        condition: service_healthy
+
+networks:
+  zvision-network:
+
+
+volumes:
+  postgres_data:
+  agent_data:
