@@ -1,0 +1,53 @@
+﻿name: kit-clinicas
+version: "1.0.0"
+display_name: "Zvision AI Kit para Clínicas"
+description: >
+  Kit de automação para clínicas médicas, odontológicas e estéticas.
+  Reduz faltas, automatiza confirmações e melhora experiência do paciente com IA.
+author: "Zvision"
+segment: saude
+squad_routing:
+  primary: squad-commercial
+  support: [squad-copy, squad-content, squad-juridico]
+
+plugins:
+  - id: agendamento-ia
+    name: "Agendamento Inteligente com IA"
+    description: "Pacientes agendam via WhatsApp 24/7 com IA — sem secretária para horários simples"
+    mcp: null
+    integrations: [whatsapp, google-calendar]
+
+  - id: confirmacao-lembrete
+    name: "Confirmação & Lembrete Anti-Falta"
+    description: "Fluxo automático de confirmação 48h e 24h antes com opção de reagendamento"
+    mcp: null
+    n8n_template: true
+    reduction_target: "70% menos faltas"
+
+  - id: pos-consulta
+    name: "Pós-Consulta Automatizada"
+    description: "Follow-up automático pós-consulta com orientações, pesquisa de satisfação e retorno"
+    mcp: null
+    integrations: [whatsapp, email]
+
+  - id: captacao-paciente
+    name: "Captação de Novos Pacientes"
+    description: "Funil de captação via Google e Meta com qualificação automática por especialidade"
+    mcp: null
+    integrations: [meta-ads, google-ads]
+
+  - id: faturamento-plano
+    name: "Gestão de Planos de Saúde"
+    description: "Automação de guias, TISS e controle de glosas com alertas inteligentes"
+    mcp: null
+    compliance: [LGPD, CFM]
+    squad: squad-juridico
+    agent: lgpd-specialist
+
+use_cases:
+  - "Clínicas com alta taxa de faltas e cancelamentos"
+  - "Consultórios que perdem leads por demora no retorno"
+  - "Clínicas que querem reduzir carga administrativa da secretaria"
+
+setup_time: "3-5 horas"
+roi_estimate: "2-4x em 30 dias (redução de faltas + aumento de novos pacientes)"

@@ -24,9 +24,9 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 ```yaml
 IDE-FILE-RESOLUTION:
   - FOR LATER USE ONLY - NOT FOR ACTIVATION, when executing commands that reference dependencies
-  - Dependencies map to .aios-core/development/{type}/{name}
+  - Dependencies map to squads/squad-claude/{type}/{name}
   - type=folder (tasks|templates|checklists|data|utils|etc...), name=file-name
-  - Example: create-agent.md → .aios-core/development/tasks/create-agent.md
+  - Example: create-agent.md → squads/squad-claude/tasks/create-agent.md
   - IMPORTANT: Only load these files when user requests specific command execution
 REQUEST-RESOLUTION: Match user requests to your commands/dependencies flexibly (e.g., "spawn a team"→*create-team, "run parallel"→*parallel-tasks, "set up agents"→*create-agent), ALWAYS ask for clarification if no clear match.
 activation-instructions:
@@ -46,13 +46,13 @@ activation-instructions:
          - Branch name, modified file count, current story reference, last commit message
       4. Show: "**Available Commands:**" — list commands from the 'commands' section above that have 'key' in their visibility array
       5. Show: "Type `*guide` for comprehensive usage instructions."
-      5.5. Check `.aios/handoffs/` for most recent unconsumed handoff artifact (YAML with consumed != true).
-           If found: read `from_agent` and `last_command` from artifact, look up position in `.aios-core/data/workflow-chains.yaml` matching from_agent + last_command, and show: "💡 **Suggested:** `*{next_command} {args}`"
+      5.5. Check `.zvision/handoffs/` for most recent unconsumed handoff artifact (YAML with consumed != true).
+           If found: read `from_agent` and `last_command` from artifact, look up position in `squads/squad-claude/data/workflow-chains.yaml` matching from_agent + last_command, and show: "💡 **Suggested:** `*{next_command} {args}`"
            If chain has multiple valid next steps, also show: "Also: `*{alt1}`, `*{alt2}`"
            If no artifact or no match found: skip this step silently.
            After STEP 4 displays successfully, mark artifact as consumed: true.
       6. Show: "{persona_profile.communication.signature_closing}"
-      # FALLBACK: If native greeting fails, run: node .aios-core/development/scripts/unified-activation-pipeline.js swarm-orchestrator
+      # FALLBACK: If native greeting fails, describe your role and available commands from this file
   - STEP 4: Display the greeting assembled in STEP 3
   - STEP 5: HALT and await user input
   - IMPORTANT: Do NOT improvise or add explanatory text beyond what is specified in greeting_levels and Quick Commands section

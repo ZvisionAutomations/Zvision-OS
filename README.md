@@ -1,41 +1,63 @@
+<![CDATA[<div align="center">
+
 # Zvision-OS
 
 **O sistema operacional para quem usa Claude Code a sério.**
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Claude Code](https://img.shields.io/badge/Claude%20Code-Compatible-orange)](https://claude.ai/code)
+[![Squads](https://img.shields.io/badge/Squads-23-purple)]()
+[![Agents](https://img.shields.io/badge/Agents-400%2B-green)]()
+
 Zvision-OS transforma o Claude Code em uma plataforma completa de automação com IA — 23 squads especializados, 400+ agentes prontos, roteamento inteligente e um segundo cérebro integrado.
 
-Você foca no problema. O sistema roteia para o especialista certo automaticamente.
+**Você foca no problema. O sistema roteia para o especialista certo automaticamente.**
+
+</div>
 
 ---
 
-## O que é isso
+## O problema que resolve
 
-Um framework de configuração para Claude Code que instala:
+Claude Code sem estrutura é um generalista que sabe tudo superficialmente.
 
-- **23 squads** de agentes especializados por domínio (dev, copy, design, segurança, growth, finanças...)
-- **400+ agentes** com expertise profunda em cada área
-- **Bridge de roteamento** que interpreta linguagem natural e delega para o squad correto
-- **Sistema de skills** com workflows prontos (`/review`, `/ship`, `/qa`, `/investigate`...)
-- **Vault Obsidian** estruturado como segundo cérebro conectado aos squads
-- **Agente WhatsApp** com LLM via OpenRouter + Evolution API
+Com Zvision-OS, você tem uma equipe completa especializada por domínio. Cada squad tem agentes com expertise profunda, bases de conhecimento, workflows e tasks executáveis — prontos para usar agora.
+
+```
+/zvision criar proposta comercial para cliente de tecnologia
+```
+
+O sistema interpreta o domínio → roteia para o `squad-commercial` → aciona o `cs-offer-designer` → entrega uma proposta estruturada com pricing, objeções mapeadas e próximos passos.
 
 ---
 
-## Por que usar
+## Demo rápido
 
-Claude Code sem estrutura é um generalista.
-Com Zvision-OS, você tem uma equipe completa.
+```bash
+# Clonar e configurar
+git clone https://github.com/ZvisionAutomations/zvision-OS.git
+cd zvision-OS
+cp .mcp.json.example .mcp.json
+
+# Invocar o orquestrador no Claude Code
+/zvision revisar segurança do código antes do deploy
+/zvision criar copy para landing page B2B
+/zvision analisar concorrentes e mapear oportunidades de mercado
+```
 
 | Você pede... | O sistema faz... |
 |-------------|-----------------|
-| "criar proposta comercial" | Roteia para squad-commercial → cs-offer-designer |
-| "revisar segurança do código" | Roteia para squad-cybersecurity → penetration-tester |
-| "escrever copy para landing" | Roteia para squad-copy → copy-chief + direct-response-writer |
-| "analisar métricas de growth" | Roteia para squad-growth → ga-data-analyst + ga-growth-hacker |
+| `"criar proposta comercial"` | squad-commercial → cs-offer-designer |
+| `"revisar segurança do código"` | squad-cybersecurity → penetration-tester |
+| `"escrever copy para landing"` | squad-copy → copy-chief + direct-response-writer |
+| `"analisar métricas de growth"` | squad-growth → ga-data-analyst + ga-growth-hacker |
+| `"criar animação Three.js"` | squad-animations → threejs-architect + shader-artist |
 
 ---
 
-## Squads disponíveis
+## O que está incluído
+
+### 23 Squads Especializados
 
 | Squad | Agentes | Domínio |
 |-------|---------|---------|
@@ -59,15 +81,42 @@ Com Zvision-OS, você tem uma equipe completa.
 | `squad-cloning` | 9 | Digital twins, clonagem de persona |
 | + 5 squads extras | — | Advisory, C-Level, Hormozi, Movement, SOP |
 
----
+### Kits Verticais
 
-## Stack
+Configurações pré-montadas por segmento de mercado — 5 plugins prontos para deploy com n8n + WhatsApp + IA:
 
-- **Runtime:** Node.js + WSL2
-- **Frontend:** Vanilla HTML/CSS/JS
-- **Agente WA:** Evolution API + OpenRouter (Gemma, Llama, Mistral)
-- **Segundo cérebro:** Obsidian + MCP local
-- **Deploy:** Vercel (landing), Docker (Evolution API)
+| Kit | Segmento | ROI Estimado |
+|-----|----------|-------------|
+| `kits/clinicas` | Clínicas e consultórios | 2-4x em 30 dias |
+| `kits/imobiliarias` | Imobiliárias e corretores | 3-5x em 60 dias |
+| `kits/juridico` | Escritórios jurídicos | 3-6x em 90 dias |
+
+Cada kit inclui: agendamento inteligente, follow-up automático, captação de leads, qualificação por IA e gestão pós-venda.
+
+### Agente WhatsApp
+
+`zvision-wa` é um agente de vendas e atendimento pronto para WhatsApp:
+
+- Conecta via Evolution API (self-hosted)
+- LLM via OpenRouter — suporta Gemma, Llama, Mistral (modelos gratuitos)
+- Transcrição de áudio via Groq
+- Playbooks de SDR e vendas configuráveis
+- Memória cross-sessão por lead
+
+### Skills Prontas
+
+| Comando | O que faz |
+|---------|-----------|
+| `/zvision [pedido]` | Orquestra e roteia para o squad certo |
+| `/review` | Code review focado em qualidade |
+| `/qa` | QA automatizado de UI |
+| `/ship` | Pipeline: review → qa → deploy |
+| `/investigate` | Investigação de bugs |
+| `/health` | Health check do projeto |
+| `/browse` | Navegação com browser |
+| `/design-html` | Construção de UI em HTML/CSS/JS |
+| `/vault-diario` | Captura rápida no segundo cérebro |
+| `/client` | Carregar contexto completo de cliente |
 
 ---
 
@@ -76,20 +125,20 @@ Com Zvision-OS, você tem uma equipe completa.
 ### 1. Clone o repositório
 
 ```bash
-git clone https://github.com/ZvisionAutomations/zvision-os.git
-cd zvision-os
+git clone https://github.com/ZvisionAutomations/zvision-OS.git
+cd zvision-OS
 npm install
 ```
 
 ### 2. Configure o Claude Code
 
 O arquivo `CLAUDE.md` na raiz é lido automaticamente pelo Claude Code.
-Ajuste os caminhos dos projetos para sua máquina:
+Ajuste os caminhos para seus projetos:
 
 ```markdown
 ## Projetos ativos
-- zvision-landing: ~/projects/zvision-landing
-- zvision-os: ~/projects/zvision-os
+- zvision-os: ~/projects/zvision-os (este repo)
+- seu-projeto: ~/projects/meu-projeto (configure aqui)
 ```
 
 ### 3. Configure as credenciais (MCP)
@@ -105,7 +154,7 @@ cp .mcp.json.example .mcp.json
 
 ```bash
 ./start.sh
-# ou para WSL:
+# ou no WSL:
 ./start-zvision.sh
 ```
 
@@ -120,71 +169,50 @@ curl -X POST http://localhost:3333/task \
 
 ### 5. Use o orquestrador no Claude Code
 
+Abra o Claude Code na pasta do projeto e invoque:
+
 ```
 /zvision criar copy para landing page de software B2B
 ```
-
-O sistema identifica o domínio, roteia para o squad correto e executa.
 
 ---
 
 ## Estrutura do repositório
 
 ```
-zvision-os/
+zvision-OS/
 ├── .claude/
-│   ├── commands/        Skills e agentes SINAPSE
+│   ├── commands/        Skills e agentes SINAPSE (400+ agentes)
 │   ├── rules/           Regras de operação (NSN, YOLO, handoff...)
+│   ├── hooks/           Token Guardian e hooks de qualidade
 │   └── skills/          Skills do gstack e workflows
-├── squads/              23 squads com agentes, tasks e KBs
+├── squads/              23 squads com agentes, tasks, KBs e workflows
+├── kits/                Kits verticais por segmento de mercado
+│   ├── clinicas/        5 plugins para saúde
+│   ├── imobiliarias/    5 plugins para imobiliárias
+│   └── juridico/        5 plugins para escritórios jurídicos
 ├── bridge/              Servidor de roteamento (Node.js, porta 3333)
 ├── zvision-wa/          Agente WhatsApp (Evolution API + LLM)
-├── dashboard/           Interface web (Phaser + Vite)
+├── dashboard/           Interface web
 ├── obsidian-vault/      Segundo cérebro estruturado
 │   ├── _templates/      Templates reutilizáveis
 │   ├── specs/           Especificações de features
-│   ├── audits/          Auditorias técnicas
-│   └── projetos/        Trabalho ativo
-├── skills/              Skills instaláveis (Apify, etc.)
-├── CLAUDE.md            Configuração central do Claude Code
+│   └── audits/          Auditorias técnicas
+├── scripts/             Utilitários e scripts de manutenção
+├── CLAUDE.md            Configuração central — lida automaticamente pelo Claude Code
+├── SECURITY.md          Política de segurança
+├── CONTRIBUTING.md      Como contribuir
 └── start.sh             Script de inicialização
 ```
 
 ---
 
-## Skills disponíveis
-
-Comandos prontos para usar no Claude Code:
-
-| Comando | O que faz |
-|---------|-----------|
-| `/zvision [pedido]` | Orquestra e roteia para o squad certo |
-| `/review` | Code review focado em qualidade |
-| `/qa` | QA automatizado de UI |
-| `/ship` | Pipeline completo: review → qa → deploy |
-| `/investigate` | Investigação de bugs |
-| `/health` | Health check do projeto |
-| `/browse` | Navegação e interação com browser |
-| `/design-html` | Construção de UI em HTML/CSS/JS |
-| `/vault-diario` | Captura rápida no segundo cérebro |
-| `/vault-deal` | Registrar negócio no vault |
-| `/client` | Carregar contexto completo de cliente |
-
----
-
-## Agente WhatsApp
-
-O `zvision-wa` é um agente de vendas e atendimento para WhatsApp:
-
-- Conecta via Evolution API (self-hosted)
-- LLM via OpenRouter (suporta Gemma, Llama, Mistral — gratuitos)
-- Suporte a áudio (transcrição via Groq), imagem e texto
-- Configurável com playbooks de vendas e SDR
+## Agente WhatsApp — Setup
 
 ```bash
 cd zvision-wa
 cp .env.example .env
-# configure EVOLUTION_API_KEY e OPENROUTER_API_KEY
+# configure EVOLUTION_API_KEY, OPENROUTER_API_KEY e EVOLUTION_INSTANCE_NAME
 docker compose up -d
 ```
 
@@ -217,15 +245,33 @@ Crie `.mcp.json` a partir do template:
 }
 ```
 
-O arquivo `.mcp.json` está no `.gitignore` — nunca commite suas chaves.
+> O arquivo `.mcp.json` está no `.gitignore` — nunca commite suas chaves.
+
+---
+
+## Stack
+
+- **Runtime:** Node.js + WSL2
+- **Frontend:** Vanilla HTML/CSS/JS
+- **Agente WA:** Evolution API + OpenRouter (Gemma, Llama, Mistral)
+- **Segundo cérebro:** Obsidian + MCP local
+- **Deploy:** Vercel (landing), Docker (Evolution API)
 
 ---
 
 ## Contribuindo
 
-PRs são bem-vindos. Estrutura básica para novos squads e agents em `squads/`.
+PRs e novos squads são bem-vindos. Leia o [CONTRIBUTING.md](CONTRIBUTING.md) para começar.
 
 Siga o protocolo: `/pwf-brainstorm` antes de qualquer feature.
+
+---
+
+## Segurança
+
+Para reportar vulnerabilidades, veja [SECURITY.md](SECURITY.md).
+
+O repositório inclui um **Token Guardian Hook** que bloqueia automaticamente commits com secrets detectados.
 
 ---
 
@@ -235,4 +281,11 @@ MIT — use, modifique, distribua.
 
 ---
 
-Feito por [Zvision Automations](https://github.com/ZvisionAutomations) · São Paulo, BR
+<div align="center">
+
+Feito por [Zvision Automations](https://github.com/ZvisionAutomations)
+
+**Claude Code + 23 squads + 400+ agentes = equipe completa de IA**
+
+</div>
+]]>

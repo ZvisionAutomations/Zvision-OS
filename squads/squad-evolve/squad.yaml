@@ -1,0 +1,52 @@
+name: squad-evolve
+version: "1.0.0"
+slashPrefix: evolve
+author: "Zvision"
+license: UNLICENSED
+description: >
+  Squad de auto-evolução do Zvision-OS — monitora o desempenho de todos os squads,
+  registra aprendizados entre sessões, otimiza prompts e agentes com base em resultados
+  reais, e garante que o sistema fique melhor a cada uso. É o sistema nervoso de
+  melhoria contínua da Zvision.
+
+metadata:
+  created: "2026-04-22"
+  author: "Zvision"
+  version: "3.0.0"
+  codename: "NEXUS"
+  tier: 0
+  agents: 6
+  tasks: 15
+  workflows: 4
+
+quality_standards:
+  principles:
+    - "Cada sessão deixa o sistema mais inteligente que antes"
+    - "Dados > opinião — métricas reais guiam otimizações"
+    - "Feedback loop fechado: ação → resultado → aprendizado → melhoria"
+    - "Nenhum squad fica estático — todos evoluem continuamente"
+
+orchestrator:
+  id: evolve-chief
+  name: "Kairos"
+  title: "Evolve Squad Director"
+
+agents:
+  - id: evolve-chief
+    name: "Kairos"
+    role: "Diretor de Evolução — orquestra o ciclo de melhoria contínua do OS"
+  - id: evolve-monitor
+    name: "Pulse"
+    role: "Monitor de performance — rastreia métricas de todos os squads"
+  - id: evolve-memory
+    name: "Mnemo"
+    role: "Gestor de memória cross-sessão — consolida aprendizados por squad"
+  - id: evolve-optimizer
+    name: "Refine"
+    role: "Otimizador de prompts — identifica e melhora padrões com baixo resultado"
+  - id: evolve-researcher
+    name: "Scan"
+    role: "Pesquisador de atualizações — monitora novos frameworks e técnicas"
+  - id: evolve-reporter
+    name: "Chronicle"
+    role: "Reporter de evolução — documenta melhorias e gera relatórios de progresso"

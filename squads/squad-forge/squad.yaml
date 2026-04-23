@@ -1,0 +1,48 @@
+name: squad-forge
+version: "1.0.0"
+slashPrefix: forge
+author: "Zvision"
+license: UNLICENSED
+description: >
+  Squad criador de squads do Zvision-OS — projeta, constrói e instala novos squads
+  dinamicamente. Recebe um domínio ou necessidade e entrega um squad completo:
+  squad.yaml, agentes, tasks, knowledge-base e workflows. O meta-squad do OS.
+
+metadata:
+  created: "2026-04-22"
+  author: "Zvision"
+  version: "3.0.0"
+  codename: "NEXUS"
+  tier: 0
+  agents: 5
+  tasks: 10
+  workflows: 3
+
+quality_standards:
+  principles:
+    - "Todo squad criado segue a estrutura padrão Zvision"
+    - "Agentes têm nomes originais — zero nomes de pessoas reais"
+    - "slashPrefix sempre único e sem referências externas"
+    - "squad.yaml é o contrato — agents são a implementação"
+
+orchestrator:
+  id: forge-chief
+  name: "Anvil"
+  title: "Forge Squad Director"
+
+agents:
+  - id: forge-chief
+    name: "Anvil"
+    role: "Diretor de Forge — coordena criação de novos squads"
+  - id: forge-architect
+    name: "Blueprint"
+    role: "Arquiteto de squads — projeta estrutura e agentes"
+  - id: forge-writer
+    name: "Quill"
+    role: "Redator de agentes — escreve personas e prompts"
+  - id: forge-validator
+    name: "Check"
+    role: "Validador — garante qualidade e consistência dos squads criados"
+  - id: forge-installer
+    name: "Deploy"
+    role: "Instalador — integra novos squads ao registry e squad-awareness"

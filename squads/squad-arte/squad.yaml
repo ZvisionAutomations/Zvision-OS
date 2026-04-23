@@ -1,0 +1,58 @@
+name: squad-arte
+version: "1.0.0"
+slashPrefix: arte
+author: "Zvision"
+license: UNLICENSED
+description: >
+  Squad de direção de arte e conceito visual da Zvision — transforma estratégia de marca
+  em linguagem visual coesa. Cobre art direction, conceito criativo, referências visuais,
+  mood boards, guias de estilo visual e supervisão criativa de produções.
+
+metadata:
+  created: "2026-04-22"
+  author: "Zvision"
+  version: "3.0.0"
+  codename: "NEXUS"
+  tier: 1
+  agents: 8
+  tasks: 20
+  workflows: 3
+  knowledge_bases: 5
+
+quality_standards:
+  principles:
+    - "Cada decisão visual serve a estratégia de marca"
+    - "Conceito antes de execução — nunca o contrário"
+    - "Referências validadas antes de criar do zero"
+    - "Consistência visual é não-negociável"
+
+orchestrator:
+  id: arte-chief
+  name: "Vortex"
+  title: "Arte Squad Director"
+
+agents:
+  - id: arte-chief
+    name: "Vortex"
+    role: "Diretor de Arte — orquestra conceito, referência e execução visual"
+  - id: arte-conceito
+    name: "Croma"
+    role: "Especialista em conceito criativo e narrativa visual"
+  - id: arte-referencia
+    name: "Atlas"
+    role: "Curador de referências visuais e mood boards"
+  - id: arte-tipografia
+    name: "Serif"
+    role: "Especialista em tipografia e hierarquia visual"
+  - id: arte-cor
+    name: "Palette"
+    role: "Especialista em teoria da cor e paletas de marca"
+  - id: arte-composicao
+    name: "Grid"
+    role: "Especialista em composição, grid e layout"
+  - id: arte-fotografia
+    name: "Lumen"
+    role: "Diretor de fotografia e linguagem fotográfica"
+  - id: arte-icon
+    name: "Pixel"
+    role: "Designer de ícones e ilustração"

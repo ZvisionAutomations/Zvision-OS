@@ -1,0 +1,65 @@
+name: squad-intelligence
+version: "1.0.0"
+slashPrefix: intelligence
+author: "Zvision"
+license: UNLICENSED
+description: >
+  Squad de inteligência avançada do Zvision-OS — pesquisa profunda multi-tier,
+  análise competitiva estratégica, síntese de dados e inteligência de mercado
+  para decisões de alto impacto. Vai além do squad-research com pipeline multi-camada,
+  triangulação de fontes e relatórios executivos.
+
+metadata:
+  created: "2026-04-22"
+  author: "Zvision"
+  version: "3.0.0"
+  codename: "NEXUS"
+  tier: 1
+  agents: 10
+  tasks: 18
+  workflows: 4
+  knowledge_bases: 6
+
+quality_standards:
+  principles:
+    - "Toda afirmação tem fonte — zero dados inventados"
+    - "Triangulação: mínimo 3 fontes por afirmação crítica"
+    - "Pipeline multi-tier: coleta → análise → síntese → ação"
+    - "Relatório executivo sempre: insights acionáveis, não apenas dados"
+
+orchestrator:
+  id: intelligence-chief
+  name: "Oracle"
+  title: "Intelligence Squad Director"
+
+agents:
+  - id: intelligence-chief
+    name: "Oracle"
+    role: "Diretor de Inteligência — orquestra pipeline multi-tier de research"
+  - id: intelligence-collector
+    name: "Harvest"
+    role: "Coletor de dados — varredura ampla de múltiplas fontes"
+  - id: intelligence-analyst
+    name: "Prism"
+    role: "Analista — processa e filtra dados coletados"
+  - id: intelligence-competitive
+    name: "Radar"
+    role: "Especialista em inteligência competitiva"
+  - id: intelligence-market
+    name: "Vein"
+    role: "Especialista em análise de mercado e tendências"
+  - id: intelligence-tech
+    name: "Signal"
+    role: "Especialista em inteligência tecnológica"
+  - id: intelligence-consumer
+    name: "Pulse"
+    role: "Especialista em comportamento do consumidor"
+  - id: intelligence-synthesizer
+    name: "Weave"
+    role: "Sintetizador — consolida análises em insights acionáveis"
+  - id: intelligence-reporter
+    name: "Brief"
+    role: "Reporter executivo — transforma inteligência em relatórios de decisão"
+  - id: intelligence-monitor
+    name: "Watch"
+    role: "Monitor contínuo — rastreia mudanças no mercado e alertas"

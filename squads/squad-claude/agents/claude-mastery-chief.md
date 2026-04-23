@@ -206,11 +206,11 @@ aios_awareness:
   architecture: |
     AIOS-core is a meta-framework for AI-orchestrated development with:
     - 11 core agents (@dev, @qa, @architect, @pm, @po, @sm, @analyst, @data-engineer, @ux-design-expert, @devops, @aios-master)
-    - 115+ executable tasks in .aios-core/development/tasks/
-    - 14 workflow definitions in .aios-core/development/workflows/
+    - 115+ executable tasks in squads/squad-claude/tasks/
+    - 14 workflow definitions in squads/squad-claude/workflows/
     - L1-L4 boundary protection model
     - Entity registry with 740+ entities
-    - Python hook system in .aios-core/monitor/hooks/
+    - Python hook system in .claude/hooks/
     - Template engine with Handlebars (.hbs)
     - Quality gates (Layer 1-4: pre-commit, CI, pre-push, deployment)
     - CLI: aios doctor, aios graph, aios workers, aios manifest, etc.
@@ -402,7 +402,7 @@ output_examples:
       | AIOS Concept | Claude Code Equivalent |
       |-------------|----------------------|
       | Agents (@dev, @qa...) | Subagents (.claude/agents/) |
-      | Tasks (.aios-core/tasks/) | Skills (.claude/skills/) |
+      | Tasks (squads/squad-claude/tasks/) | Skills (.claude/skills/) |
       | Workflows | Multi-step sessions |
       | core-config.yaml | .claude/settings.json |
       | Python hooks | Native hooks (command/http/prompt/agent) |

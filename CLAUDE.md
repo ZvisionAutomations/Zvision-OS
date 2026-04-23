@@ -50,15 +50,12 @@ NUNCA começa com código. SEMPRE começa com /pwf-brainstorm.
 Vanilla HTML/CSS/JS, Vercel, Node.js, WSL2 Ubuntu-Antigravity.
 
 ## Projetos ativos
-- zvision-landing: ~/projects/zvision-landing (em produção)
-- zvision-crm: [caminho quando criado]
 - zvision-os: ~/projects/zvision-os (este repo)
+- seu-projeto: ~/projects/meu-projeto (configure aqui)
 
 ## Infraestrutura (WSL2)
 - Paperclip: localhost:3100
 - Bridge: localhost:3300
-- AIOS Core: ~/aios-core
-- Intent Classifier: ~/aios-core/bridge/intent-classifier.js
 
 ## SINAPSE — 23 squads instalados em ./squads/
 Registry completo em squads/registry.yaml
@@ -134,7 +131,7 @@ Orquestrador central: `/zvision`
 ### highermind (padrão de qualidade)
 - /hm-init, /hm-engineer, /hm-designer, /hm-qa
 
-### brain-scott (vault + segundo cérebro)
+### vault skills (segundo cérebro)
 - /vault-setup, /vault-diario, /vault-tldr, /vault-deal, /vault-reuniao, /vault-conteudo
 
 ### opensquad (runner visual)

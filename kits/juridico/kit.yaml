@@ -1,0 +1,52 @@
+﻿name: kit-juridico
+version: "1.0.0"
+display_name: "Zvision AI Kit para Escritórios Jurídicos"
+description: >
+  Kit de automação para advogados e escritórios jurídicos.
+  Triagem de casos, geração de petições, gestão de prazos e CRM jurídico com IA.
+author: "Zvision"
+segment: juridico
+squad_routing:
+  primary: squad-juridico
+  support: [squad-commercial, squad-copy, squad-intelligence]
+
+plugins:
+  - id: triagem-caso
+    name: "Triagem Inteligente de Casos"
+    description: "IA qualifica e classifica casos recebidos por área do direito e probabilidade de êxito"
+    mcp: null
+    squad: squad-juridico
+    agent: juridico-chief
+
+  - id: gerador-peticoes
+    name: "Gerador de Peições & Documentos"
+    description: "Gera minutas de petições, contratos e notificações baseado no briefing do caso"
+    mcp: null
+    squad: squad-juridico
+    agents: [contratos, contencioso, compliance]
+
+  - id: protocolo-digital
+    name: "Protocolo & Acompanhamento Digital"
+    description: "Monitora prazos processuais, publica movimentações e envia alertas automáticos"
+    mcp: playwright
+    data_source: "Tribunais TJ, TST, STJ via automação"
+
+  - id: cliente-portal
+    name: "Portal do Cliente Automatizado"
+    description: "Clientes acompanham processos, recebem updates e enviam documentos via WhatsApp"
+    mcp: null
+    integrations: [whatsapp, email]
+
+  - id: precificacao-horas
+    name: "Gestão de Horas & Honorários"
+    description: "Timesheet automático, cálculo de honorários e emissão de faturas com IA"
+    mcp: null
+    compliance: [LGPD, OAB]
+
+use_cases:
+  - "Advogados que perdem prazos por falta de controle"
+  - "Escritórios com alto volume de documentos repetitivos"
+  - "Bancas que precisam melhorar comunicação com clientes"
+
+setup_time: "4-6 horas"
+roi_estimate: "3-6x em 90 dias (produtividade + novos clientes via qualificação automática)"

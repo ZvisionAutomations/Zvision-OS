@@ -1,0 +1,55 @@
+# HERMES Agent — Zvision BDR/SDR Config
+agent:
+  max_context_messages: 20
+  max_messages_per_lead: 80
+  reengagement_days: 7
+
+llm:
+  primary_provider: openrouter
+  primary_models:
+    - meta-llama/llama-3.3-70b-instruct:free
+    - google/gemma-4-31b-it:free
+    - google/gemma-4-26b-a4b-it:free
+  vision_models:
+    - google/gemma-4-31b-it:free
+    - google/gemma-4-26b-a4b-it:free
+  fallback_provider: groq
+  fallback_models:
+    - llama-3.3-70b-versatile
+    - llama-3.1-8b-instant
+  temperature: 0.65
+  max_tokens: 300
+  top_p: 0.9
+  timeout_seconds: 30
+
+tts:
+  provider: polly          # polly | edge | disabled
+  polly_engine: neural
+  polly_language: pt-BR
+  ogg_bitrate: 32k
+
+stt:
+  provider: groq
+  model: whisper-large-v3-turbo
+  language: pt
+
+knowledge:
+  chunk_size: 400
+  chunk_overlap: 80
+  top_k: 4
+  min_score: 0.05
+
+memory:
+  summarize_after_messages: 20
+  summary_max_length: 200
+
+skills_dir: /opt/hermes/skills
+soul_path: /opt/hermes/SOUL.md
+
+calendar:
+  slot_duration_min: 30
+  working_start_h: 9
+  working_end_h: 18
+  days_ahead: 3
+  max_slots: 3
+  reminder_interval_minutes: 30

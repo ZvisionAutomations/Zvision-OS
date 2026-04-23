@@ -1,0 +1,51 @@
+﻿name: kit-imobiliarias
+version: "1.0.0"
+display_name: "Zvision AI Kit para Imobiliárias"
+description: >
+  Kit completo de automação inteligente para imobiliárias e corretores.
+  Captura leads, qualifica compradores, agenda visitas e fecha contratos com IA.
+author: "Zvision"
+segment: imobiliario
+squad_routing:
+  primary: squad-commercial
+  support: [squad-copy, squad-intelligence, squad-juridico]
+
+plugins:
+  - id: crm-imoveis
+    name: "CRM Inteligente para Imóveis"
+    description: "Pipeline de vendas com qualificação automática de compradores e locatários"
+    mcp: null
+    n8n_template: true
+
+  - id: tour-virtual
+    name: "Tour Virtual & Apresentação IA"
+    description: "Geração automática de apresentações e roteiros de tour para cada imóvel"
+    mcp: playwright
+    trigger: "quando imóvel é cadastrado"
+
+  - id: avaliacao-imoveis
+    name: "Avaliador de Imóveis com IA"
+    description: "Avaliação automática baseada em dados de mercado e comparativos regionais"
+    mcp: exa
+    data_source: "Mercado Livre Imóveis, ZAP, VivaReal"
+
+  - id: leads-captacao
+    name: "Captação de Leads Multicanal"
+    description: "Integra WhatsApp, portal, Instagram e Google Ads em pipeline unificado"
+    mcp: null
+    integrations: [whatsapp, meta-ads, google-ads]
+
+  - id: contratos-imoveis
+    name: "Gerador de Contratos Imobiliários"
+    description: "Gera contratos de compra, venda e locação com cláusulas automáticas por estado"
+    mcp: null
+    squad: squad-juridico
+    agent: contratos
+
+use_cases:
+  - "Corretoras que querem automatizar qualificação de leads"
+  - "Imobiliárias que perdem leads por demora no atendimento"
+  - "Equipes que precisam de contratos rápidos e padronizados"
+
+setup_time: "2-4 horas"
+roi_estimate: "3-5x em 60 dias (aumento de conversão de leads)"
