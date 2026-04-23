@@ -26,7 +26,7 @@ services:
       retries: 5
 
   evolution:
-    image: zvisionautomations/evolution-api:v2.3.5
+    image: atendai/evolution-api:v2.3.5
     ports:
       - "8080:8080"
     environment:
@@ -72,7 +72,7 @@ services:
       - EVOLUTION_INSTANCE_NAME=zvision-sdr
       - OPENROUTER_API_KEY=${OPENROUTER_API_KEY}
       - GROQ_API_KEY=${GROQ_API_KEY:-}
-      - MIGUEL_PHONE=${MIGUEL_PHONE}
+      - CLOSER_PHONE=${CLOSER_PHONE}
       - DATA_DIR=/data/leads
       - PORT=3400
     volumes:

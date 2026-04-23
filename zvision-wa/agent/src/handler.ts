@@ -4,7 +4,7 @@ import { askGemini } from './gemini';
 import { VITOR_PROMPT, ANA_PROMPT } from './prompts';
 import { EvolutionClient } from './evolution-client';
 
-const MIGUEL_PHONE = process.env.MIGUEL_PHONE ?? '';
+const CLOSER_PHONE = process.env.CLOSER_PHONE ?? '';
 const MAX_MESSAGES = 20;
 
 export interface IncomingMessage {
@@ -121,7 +121,7 @@ export async function initiateOutbound(
   console.log(`[outbound] Vitor iniciou com ${businessName} (${phone})`);
 }
 
-// ─── Handoff para Miguel ─────────────────────────────────────────────────────
+// ─── Handoff para humano ─────────────────────────────────────────────────────
 
 async function triggerHandoff(
   lead: Lead,
@@ -129,9 +129,9 @@ async function triggerHandoff(
   remoteJid: string,
   evolution: EvolutionClient,
 ): Promise<void> {
-  await evolution.sendText(remoteJid, 'Deixa eu chamar o Miguel diretamente, um segundo.');
+  await evolution.sendText(remoteJid, 'Deixa eu chamar nosso especialista, um segundo.');
 
-  if (MIGUEL_PHONE) {
+  if (CLOSER_PHONE) {
     const pain = lead.pain ?? 'não identificada ainda';
     const summary = [
       `🔔 *Novo lead para você fechar*`,
@@ -145,10 +145,10 @@ async function triggerHandoff(
       `Responda diretamente nesse número.`,
     ].join('\n');
 
-    await evolution.sendText(MIGUEL_PHONE, summary);
-    console.log(`[handoff] Notificação enviada para Miguel sobre ${lead.name}`);
+    await evolution.sendText(CLOSER_PHONE, summary);
+    console.log(`[handoff] Notificação enviada ao closer sobre ${lead.name}`);
   } else {
-    console.warn('[handoff] MIGUEL_PHONE não configurado — notificação não enviada');
+    console.warn('[handoff] CLOSER_PHONE não configurado — notificação não enviada');
   }
 
   lead.state = 'HUMAN_HANDOFF';

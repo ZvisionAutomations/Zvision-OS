@@ -1,8 +1,26 @@
 {
-  "name": "opensquad-project",
-  "version": "1.0.0",
+  "name": "zvision-os",
+  "version": "1.1.0",
+  "description": "AI Operating System for Claude Code — 23 specialized squads, 400+ agents, intelligent routing",
   "private": true,
+  "scripts": {
+    "start": "node bridge/index.js",
+    "bridge": "node bridge/index.js",
+    "dev": "node bridge/index.js"
+  },
   "dependencies": {
     "playwright": "^1.58.2"
-  }
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "claude-code",
+    "ai-agents",
+    "automation",
+    "n8n",
+    "whatsapp",
+    "llm"
+  ],
+  "license": "MIT"
 }

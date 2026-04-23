@@ -358,9 +358,8 @@ function handleTask(req, res) {
 }
 
 // ── DISPATCH ─────────────────────────────────────────────────────────────────
-// Classifica intent + despacha para Paperclip (http://localhost:3100)
-
-const PAPERCLIP_URL = 'http://localhost:3100';
+// Classifica intent e retorna squad + invoke command
+// Alias para /task — compatibilidade com integrações existentes
 
 function handleDispatch(req, res) {
   if (req.method !== 'POST') return send405(res, '/dispatch');
@@ -389,67 +388,19 @@ function handleDispatch(req, res) {
 
     const { context } = compressContext(squad, task.trim());
 
-    const payload = JSON.stringify({
-      company: 'Zvision',
-      agent: squad.id,
-      task: task.trim(),
-      context,
-      priority: parsed.priority || 'normal',
-    });
-
-    // POST para Paperclip
-    const options = {
-      hostname: '127.0.0.1',
-      port: 3100,
-      path: '/api/tasks',
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Content-Length': Buffer.byteLength(payload),
-      },
+    const result = {
+      dispatched: true,
+      squad: squad.id,
+      squad_name: squad.name,
+      invoke: squad.invoke,
+      description: squad.description,
+      context_compressed: context,
+      task_received: task.trim(),
+      timestamp: new Date().toISOString(),
     };
 
-    const pReq = http.request(options, (pRes) => {
-      let pBody = '';
-      pRes.on('data', (c) => { pBody += c; });
-      pRes.on('end', () => {
-        let pData;
-        try { pData = JSON.parse(pBody); } catch (_) { pData = { raw: pBody }; }
-
-        const result = {
-          dispatched: true,
-          squad: squad.id,
-          squad_name: squad.name,
-          invoke: squad.invoke,
-          ticket_id: pData.id || pData.ticket_id || null,
-          paperclip_status: pRes.statusCode,
-          paperclip_response: pData,
-          task_received: task.trim(),
-          timestamp: new Date().toISOString(),
-        };
-
-        sendJSON(res, 200, result);
-        log('POST', '/dispatch', 200, `→ ${squad.id} | Paperclip ticket: ${result.ticket_id}`);
-      });
-    });
-
-    pReq.on('error', (err) => {
-      const result = {
-        dispatched: false,
-        squad: squad.id,
-        squad_name: squad.name,
-        invoke: squad.invoke,
-        error: `Paperclip indisponível: ${err.message}`,
-        fallback: `Execute manualmente: ${squad.invoke || squad.id}`,
-        task_received: task.trim(),
-        timestamp: new Date().toISOString(),
-      };
-      sendJSON(res, 503, result);
-      log('POST', '/dispatch', 503, `Paperclip offline — squad classificado: ${squad.id}`);
-    });
-
-    pReq.write(payload);
-    pReq.end();
+    sendJSON(res, 200, result);
+    log('POST', '/dispatch', 200, `→ ${squad.id} | invoke: ${squad.invoke || 'manual'}`);
   });
 }
 
@@ -479,7 +430,7 @@ server.listen(PORT, () => {
 ║   GET  /status   → health + squads       ║
 ║   GET  /squads   → registry completo     ║
 ║   POST /task     → intent classifier     ║
-║   POST /dispatch → classify + Paperclip  ║
+║   POST /dispatch → classify + invoke cmd ║
 ╚══════════════════════════════════════════╝
 `);
   log('SYS', 'boot', 200, `porta ${PORT} | ${SQUADS.length} squads carregados`);

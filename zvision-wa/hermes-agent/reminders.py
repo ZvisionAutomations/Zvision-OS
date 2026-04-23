@@ -60,7 +60,7 @@ async def _tick(evolution: "EvolutionClient") -> None:
         start_brt = ev["start_utc"].astimezone(BRT)
         msg = (
             f"Oi! Lembrando que amanhã às {start_brt.strftime('%H')}h "
-            f"é sua call com o Miguel sobre o site de vocês. "
+            f"é sua call sobre o site de vocês. "
             f"Qualquer dúvida até lá, me chama aqui!"
         )
         try:
@@ -79,7 +79,7 @@ async def _tick(evolution: "EvolutionClient") -> None:
             continue
 
         meet = ev.get("meet_link") or "verifique seu e-mail"
-        msg = f"Sua call com o Miguel começa em 1 hora! Link da reunião: {meet}"
+        msg = f"Sua call começa em 1 hora! Link da reunião: {meet}"
         try:
             await evolution.send_text(ev["phone"], msg)
             sent.add(key)

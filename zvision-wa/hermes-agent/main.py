@@ -35,7 +35,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 PORT = int(os.getenv("PORT", "3400"))
-MIGUEL_PHONE = os.getenv("MIGUEL_PHONE", "")
+CLOSER_PHONE = os.getenv("CLOSER_PHONE", "")
 WEBHOOK_SECRET = os.getenv("WEBHOOK_SECRET", "")
 GOOGLE_CALENDAR_ID = os.getenv("GOOGLE_CALENDAR_ID", "")
 
@@ -124,8 +124,8 @@ async def lifespan(_app: FastAPI):
     kb = get_knowledge_base()
     await kb.load()
 
-    if MIGUEL_PHONE and not re.match(r"^\d{10,15}$", MIGUEL_PHONE):
-        logger.warning("[init] MIGUEL_PHONE format suspicious: %s", _mask(MIGUEL_PHONE))
+    if CLOSER_PHONE and not re.match(r"^\d{10,15}$", CLOSER_PHONE):
+        logger.warning("[init] CLOSER_PHONE format suspicious: %s", _mask(CLOSER_PHONE))
 
     evolution = get_evolution_client()
     try:
@@ -512,8 +512,8 @@ async def _process_scheduling(
         lead.scheduling_step = "confirmed"
         lead.state = "QUALIFIED"
 
-        # Notify Miguel
-        if MIGUEL_PHONE:
+        # Notify closer
+        if CLOSER_PHONE:
             pain_clean = re.sub(r"[*_\[\]`]", "", lead.pain or "não identificada")[:200]
             summary = "\n".join([
                 "📅 *Briefing agendado*",
@@ -526,13 +526,13 @@ async def _process_scheduling(
                 f"*Meet:* {meet_link or 'pendente'}",
             ])
             try:
-                await evolution.send_text(MIGUEL_PHONE, summary)
+                await evolution.send_text(CLOSER_PHONE, summary)
             except Exception as exc:
-                logger.error("[scheduling] Failed to notify Miguel: %s", exc)
+                logger.error("[scheduling] Failed to notify closer: %s", exc)
 
         meet_info = f"\n\nLink da reunião: {meet_link}" if meet_link else ""
         return (
-            f"Agendado! Briefing {slot['label']} com o Miguel. "
+            f"Agendado! Briefing {slot['label']}. "
             f"Você vai receber o convite no e-mail {lead.email}.{meet_info}"
         )
 
@@ -546,9 +546,9 @@ async def _trigger_handoff(
     remote_jid: str,
     evolution: EvolutionClient,
 ) -> None:
-    await evolution.send_text(remote_jid, "Deixa eu chamar o Miguel diretamente, um segundo.")
+    await evolution.send_text(remote_jid, "Deixa eu chamar nosso especialista, um segundo.")
 
-    if MIGUEL_PHONE:
+    if CLOSER_PHONE:
         # H7: Sanitize pain field — strip markdown, limit length
         pain_raw = lead.pain or "não identificada ainda"
         pain = re.sub(r"[*_\[\]`]", "", pain_raw)[:200].replace("\n", " ")
@@ -564,12 +564,12 @@ async def _trigger_handoff(
             "Responda diretamente nesse número.",
         ])
         try:
-            await evolution.send_text(MIGUEL_PHONE, summary)
-            logger.info("[handoff] Miguel notified about lead %s", lead.name[:20])
+            await evolution.send_text(CLOSER_PHONE, summary)
+            logger.info("[handoff] Closer notified about lead %s", lead.name[:20])
         except Exception as exc:
-            logger.error("[handoff] Failed to notify Miguel: %s", exc)
+            logger.error("[handoff] Failed to notify closer: %s", exc)
     else:
-        logger.warning("[handoff] MIGUEL_PHONE not set")
+        logger.warning("[handoff] CLOSER_PHONE not set")
 
     lead.state = "HUMAN_HANDOFF"
     lead.handoff_sent = True

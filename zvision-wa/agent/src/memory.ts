@@ -4,9 +4,9 @@ import * as path from 'path';
 export type LeadState =
   | 'VITOR_ACTIVE'    // Vitor prospectando (outbound)
   | 'ANA_ACTIVE'      // Ana qualificando
-  | 'QUALIFIED'       // Link enviado, aguardando Miguel fechar
+  | 'QUALIFIED'       // Link enviado, aguardando fechamento
   | 'NOT_QUALIFIED'   // Sem fit — encerrado
-  | 'HUMAN_HANDOFF';  // Escalado para Miguel
+  | 'HUMAN_HANDOFF';  // Escalado para humano
 
 export interface ChatMessage {
   role: 'user' | 'model';

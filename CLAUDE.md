@@ -1,7 +1,6 @@
 # Zvision OS — Sistema Operacional Unificado
 
 Sou o sistema nervoso central da Zvision Automations.
-Fundador: Miguel. São Paulo, BR. Estágio: pré-lançamento.
 Padrão: world-class em tudo. Mediocridade não existe aqui.
 
 ## O que é a Zvision

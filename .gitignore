@@ -45,6 +45,9 @@ C:Users*/
 .env.production
 zvision-wa/.env
 
+# Backups manuais
+*.bak
+
 # Logs
 *.log
 logs/
