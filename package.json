@@ -1,12 +1,16 @@
 {
   "name": "zvision-os",
-  "version": "1.1.0",
-  "description": "AI Operating System for Claude Code — 23 specialized squads, 400+ agents, intelligent routing",
+  "version": "2.0.0",
+  "description": "AI Operating System for Claude Code — 23 specialized squads, 300+ agents, 1400+ executable tasks",
   "private": true,
+  "bin": {
+    "zvision-os": "bin/install.js"
+  },
   "scripts": {
     "start": "node bridge/index.js",
     "bridge": "node bridge/index.js",
-    "dev": "node bridge/index.js"
+    "dev": "node bridge/index.js",
+    "install-local": "node bin/install.js"
   },
   "dependencies": {
     "playwright": "^1.58.2"
@@ -18,9 +22,20 @@
     "claude-code",
     "ai-agents",
     "automation",
+    "squads",
     "n8n",
     "whatsapp",
-    "llm"
+    "llm",
+    "sinapse",
+    "framework"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ZvisionAutomations/zvision-OS.git"
+  },
+  "homepage": "https://github.com/ZvisionAutomations/zvision-OS#readme",
+  "bugs": {
+    "url": "https://github.com/ZvisionAutomations/zvision-OS/issues"
+  }
 }
